@@ -6,7 +6,7 @@ on:
       - mother
 
     paths:
-      - 'content/**'
+      - 'contents/**'
 
 jobs:
   publish-article:
