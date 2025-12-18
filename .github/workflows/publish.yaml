@@ -3,7 +3,7 @@ name: Publish Article to The Charlatan Commitory Blog
 on: 
   push:
     branches:
-      - main
+      - mother
 
     paths:
       - 'content/**'
