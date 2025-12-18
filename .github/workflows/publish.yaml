@@ -1,0 +1,25 @@
+name: Publish Article to The Charlatan Commitory Blog
+
+on: 
+  push:
+    branches:
+      - main
+
+    paths:
+      - 'content/**'
+
+jobs:
+  publish-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger External Workflow
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: 'judzelicor',
+              repo: 'blog.judzelicor.com',
+              event_type: 'publish-post',
+            })
